@@ -1,5 +1,12 @@
 {
-  "name": "SB_2017_GHOST",
-  "version": "2017.0",
-  "author": "Saskia Brueckner"
+  "name": "sb_2017_ghost",
+  "version": "2017.1.0",
+  "author": {
+    "name": "Saskia Brueckner",
+    "email": "info@saskiabrueckner.com",
+    "url": "http://sbtravel.eu"
+  },
+  "config": {
+    "posts_per_page": "7"
+  }
 }
