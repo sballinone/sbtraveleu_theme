@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8">
+
+    <link rel="shortcut icon" href="http://me.saskiabrueckner.com/fileadmin/ci/logo-favicon-iphone.png"
+          type="image/png">
+    <title>{{post.title}} | {{@blog.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to Saskia Brueckner's travel magazine.">
+
+	<meta property="fb:app_id" content="221080988276020" />
+
+    <link rel="stylesheet" type="text/css" href="{{asset "css/styles.css"}}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{asset "font-awesome-4.6.2/css/font-awesome.min.css"}}" media="all">
+
+    {{ghost_head}}
+
+</head>
+<body>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55f17fcf19588547"
+        async="async"></script>
+
+<!-- Header Start -->
+<div id="headerwrapper">
+    <header id="header">
+        <div id="topnav">
+            <!-- Social Icons Start -->
+            <div id="social">
+                <ul>
+                    <li><a class="fa fa-facebook-official fa-lg" href="http://facebook.com/sbmagonline"></a></li>
+                    <li><a class="fa fa-instagram fa-lg" href="http://instagram.com/saskiamail"></a></li>
+                    <li><a class="fa fa-youtube-square fa-lg" href="http://youtube.com/saskiamail"></a></li>
+                </ul>
+            </div>
+            <!-- Social Icons End -->
+            &nbsp;&nbsp;
+            <!-- Metanav Start -->
+            <a href="http://me.saskiabrueckner.com/legal/imprint.html">Imprint</a>
+            &nbsp;&centerdot;&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/contact.html">Contact</a>
+            <!-- Metanav End -->
+        </div>
+        <div id="logo">
+            <img src="{{asset "images/logo.png"}}" height="40" alt="logo">
+        </div>
+    </header>
+</div>
+<!-- Header End -->
+
+<div id="pagewrap">
+    <div id="navwrap">
+        <!-- Navigation Start -->
+        <nav id="navigation">
+            {{navigation}}
+        </nav>
+
+        <!-- Navigation End -->
+    </div>
+
+    {{#post}}
+        <article class="{{post_class}}">
+            <div id="headerimage" style="background-image: url('{{image}}');">
+                &nbsp;
+            </div>
+
+            <div id="sitetitle">
+                <div id="sitetitlemain">
+                    {{title}}
+                </div>
+                <div id="metadata">
+                    {{date published_at format="MMMM Do, YYYY"}}, by {{author}}
+                </div>
+            </div>
+
+            <div id="contentwrapper">
+
+                <!-- Content Start -->
+                <div id="content">
+                    <div class="siteicons">
+                        <a class="addthis_button_compact"><span class="fa fa-share-alt fa-lg"></span> Share</a>
+                        &centerdot;
+                        <a href="javascript:window.print()"><span class="fa fa-print fa-lg"></span> Print</a>
+                    </div>
+
+                    {{content}}
+
+                    <div class="siteicons">
+                        <a class="addthis_button_compact"><span class="fa fa-share-alt fa-lg"></span> Share</a>
+                        &centerdot;
+                        <a href="javascript:window.print()"><span class="fa fa-print fa-lg"></span> Print</a>
+                    </div>
+
+                    <div class="tx-indexedsearch-browsebox">
+                        <ul class="browsebox">
+                            {{#prev_post}}
+                                <li><a href="{{url}}">{{title}}</a></li>
+                            {{/prev_post}}
+
+                            {{#next_post}}
+                                <li><a href="{{url}}">{{title}}</a></li>
+                            {{/next_post}}
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- Content End -->
+
+                <!-- Sidebar Start -->
+                <div id="sidebar">
+                    <div id="sidebartitle">
+                        <span class="fa fa-location-arrow"> </span>
+                        <a href="http://sbtravel.eu">Welcome</a>&nbsp;/&nbsp;SB Travel
+                    </div>
+
+                    <div id="sidebarcontent">
+
+                        <div class="sidebarnavigation">
+                            <p>
+                                {{tags}}
+                            </p>
+
+<p>&nbsp;</p>
+
+							<div id="ccwrap">
+								<div id="customercentertitle">
+									Email notification
+								</div>
+
+								<div id="customercenter">	
+									<p>
+										{{#if success}}
+											{{#contentFor "title"}}Success!{{/contentFor}}
+											{{#contentFor "body"}}<p>You've successfully subscribed :)</p>{{/contentFor}}
+										{{else if error}}
+											{{#contentFor "title"}}Error!{{/contentFor}}
+											{{#contentFor "body"}}{{subscribe_form autofocus="true"}}{{/contentFor}}
+										{{else}}
+											{{#contentFor "title"}}Subscribe..{{/contentFor}}
+											{{#contentFor "body"}}{{subscribe_form autofocus="true"}}{{/contentFor}}
+										{{/if}}
+
+										<section class="subscribe">
+											<header>
+												<h1>{{{block "title"}}}</h1>
+											</header>
+
+											{{{block "body"}}}
+
+										</section>
+									</p>
+								</div>
+							</div>
+
+<p>&nbsp;</p>
+
+							<p>
+								<div id="fb-root"></div>
+								<script>(function(d, s, id) {
+									var js, fjs = d.getElementsByTagName(s)[0];
+									if (d.getElementById(id)) return;
+									js = d.createElement(s); js.id = id;
+									js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+									fjs.parentNode.insertBefore(js, fjs);
+								}(document, 'script', 'facebook-jssdk'));</script>
+
+								<div class="fb-comments" data-href="http://sbtravel.eu{{url}}" data-width="250" data-numposts="10"></div>
+							</p>
+
+<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(51, 51, 51, 0), rgba(51, 51, 51, 0.75), rgba(51, 51, 51, 0)); ">
+
+							<p align="center">
+                                <a href='https://uberspace.de'>
+                                     <img src='{{asset "images/uberspace.png"}}' style='border: 0px'>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar End -->
+            </div>
+
+        </article>
+    {{/post}}
+    <!-- Footer Start -->
+    <footer id="footer">
+        <p>
+            &copy; 2016 Saskia Brueckner &centerdot; saskiabrueckner.com /&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/footer-only/sitemap.html">Sitemap</a>
+            &nbsp;&centerdot;&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/footer-only/disclaimer.html">Disclaimer</a>
+            &nbsp;&centerdot;&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/footer-only/policy.html">Policy</a>
+            &nbsp;&centerdot;&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/imprint.html">Imprint</a>
+        </p>
+    </footer>
+    <!-- Footer End -->
+
+</div>
+</body>
+</html>

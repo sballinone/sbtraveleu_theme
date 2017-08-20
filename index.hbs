@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8">
+
+    <link rel="shortcut icon" href="http://me.saskiabrueckner.com/fileadmin/ci/logo-favicon-iphone.png"
+          type="image/png">
+    <title>{{@blog.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to Saskia Brueckner's travel magazine.">
+
+    <link rel="stylesheet" type="text/css" href="{{asset "css/styles.css"}}" media="all">
+    <link rel="stylesheet" type="text/css" href="{{asset "font-awesome-4.6.2/css/font-awesome.min.css"}}" media="all">
+
+    {{ghost_head}}
+
+</head>
+<body>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55f17fcf19588547"
+        async="async"></script>
+
+<!-- Header Start -->
+<div id="headerwrapper">
+    <header id="header">
+        <div id="topnav">
+            <!-- Social Icons Start -->
+            <div id="social">
+                <ul>
+                    <li><a class="fa fa-facebook-official fa-lg" href="http://facebook.com/sbmagonline"></a></li>
+                    <li><a class="fa fa-instagram fa-lg" href="http://instagram.com/saskiamail"></a></li>
+                    <li><a class="fa fa-youtube-square fa-lg" href="http://youtube.com/saskiamail"></a></li>
+                </ul>
+            </div>
+            <!-- Social Icons End -->
+            &nbsp;&nbsp;
+            <!-- Metanav Start -->
+            <a href="http://me.saskiabrueckner.com/legal/imprint.html">Imprint</a>
+            &nbsp;&centerdot;&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/contact.html">Contact</a>
+            <!-- Metanav End -->
+        </div>
+        <div id="logo">
+            <img src="{{asset "images/logo.png"}}" height="40" alt="logo">
+        </div>
+    </header>
+</div>
+<!-- Header End -->
+
+<div id="pagewrap">
+    <div id="navwrap">
+        <!-- Navigation Start -->
+        <nav id="navigation">
+            {{navigation}}
+        </nav>
+
+        <!-- Navigation End -->
+    </div>
+
+    {{#foreach posts}}
+    {{#if @first}}
+    <div id="headerimage" style="background-image: url('{{image}}');">
+        &nbsp;
+    </div>
+
+    <div id="teaser">
+        <div id="teasertitlemain">
+            <a href="{{url}}">{{title}}</a>
+        </div>
+        <div id="teasertext">
+            <p>{{excerpt words="10"}}... <a href="{{url}}">read more</a></p>
+        </div>
+    </div>
+
+    <div id="contentwrapper">
+
+        <!-- Content Start -->
+        <div id="content-fw">
+
+            <table>
+                {{else}}
+                    <tr>
+                        <td>
+                            <div style="float: inherit;">
+                                <article class="{{post_class}}">
+                                <div style="float: left; padding: 5px; width: 75px;">
+                                    <h2>{{date format='MMM'}}</h2>
+                                    <h3>{{date format='Do'}}</h3>
+                                </div>
+                                <div class="previewimage" style="float: left; margin: 25px;
+                                background-image: url('{{image}}');
+                                ">&nbsp;
+                                </div>
+                                <div style="float: end; padding: 5px;">
+                                    <header class="post-header">
+                                    <h1 style="color: #cc0066; size: 25pt; font-weight: 200;"><a href="{{url}}">{{title}}</a></h1>
+                                    </header>
+                                    <section class="post-excerpt">
+                                        <p>{{excerpt words="26"}}...</p>
+                                    </section>
+                                    <a href="{{url}}">read more...</a>
+                                </div>
+                                </article>
+                            </div>
+                        </td>
+                    </tr> 
+                    {{/if}}
+                    {{/foreach}}
+            </table>
+
+            <div class="tx-indexedsearch-browsebox">
+                <ul class="browsebox">
+                    {{pagination}}
+                </ul>
+            </div>
+        </div>
+        <!-- Content End -->
+    </div>
+
+    <!-- Footer Start -->
+    <footer id="footer">
+        <p>
+            &copy; 2016 Saskia Brueckner &centerdot; saskiabrueckner.com /&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/footer-only/sitemap.html">Sitemap</a>
+            &nbsp;&centerdot;&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/footer-only/disclaimer.html">Disclaimer</a>
+            &nbsp;&centerdot;&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/footer-only/policy.html">Policy</a>
+            &nbsp;&centerdot;&nbsp;
+            <a href="http://me.saskiabrueckner.com/legal/imprint.html">Imprint</a>
+        </p>
+    </footer>
+    <!-- Footer End -->
+
+</div>
+
+{{ghost_foot}}
+
+</body>
+</html>
